@@ -1,259 +1,238 @@
-:root{
-    --bg: #fbf7f4;
-    --card-start: #fffaf6;
-    --card-end: #fff7f2;
-    --accent: #7a5b45;
-    --muted: #6a5346;
-    --text: #3b2b24;
-    --shadow: rgba(45,30,20,0.06);
-    --border: rgba(122,91,69,0.08);
-    font-family: "Inter", "Helvetica Neue", Arial, sans-serif;
-}
+:root{ /* เริ่มต้นบล็อกตัวแปร CSS ที่ใช้งานทั่วทั้งเอกสาร */ 
+    --bg: #fbf7f4; /* สีพื้นหลังหลักของหน้า */ 
+    --card-start: #fffaf6; /* สีเริ่มต้นสำหรับ gradient ของการ์ด */ 
+    --card-end: #fff7f2; /* สีปลายสำหรับ gradient ของการ์ด */ 
+    --accent: #7a5b45; /* สีเน้น/หัวข้อในโทนน้ำตาล */ 
+    --muted: #6a5346; /* สีข้อความรอง (muted) */ 
+    --text: #3b2b24; /* สีตัวอักษรหลัก */ 
+    --shadow: rgba(45,30,20,0.06); /* สีเงาโปร่งแสงสำหรับกล่อง */ 
+    --border: rgba(122,91,69,0.08); /* สีขอบโปร่งแสง */ 
+    font-family: "Inter", "Helvetica Neue", Arial, sans-serif; /* ฟอนต์หลักที่ใช้ในหน้า */ 
+} /* ปิดบล็อก :root */ 
 
-body {
-    background: var(--bg);
-    color: var(--text);
-    margin: 0;
-    -webkit-font-smoothing:antialiased;
-    -moz-osx-font-smoothing:grayscale;
-}
+body { /* เริ่มต้นสไตล์สำหรับแท็ก body */ 
+    background: var(--bg); /* ใช้ตัวแปรสีพื้นหลังจาก :root */ 
+    color: var(--text); /* กำหนดสีตัวอักษรหลัก */ 
+    margin: 0; /* รีเซ็ต margin ของ body ให้เป็น 0 */ 
+    -webkit-font-smoothing:antialiased; /* ปรับการเรนเดอร์ฟอนต์บน WebKit ให้เรียบขึ้น */ 
+    -moz-osx-font-smoothing:grayscale; /* ปรับการเรนเดอร์ฟอนต์บน Firefox/Mac ให้เรียบขึ้น */ 
+} /* ปิดบล็อก body */ 
 
-/* container for all cards */
-.tesa-grid {
-    display: flex;
-    gap: 20px;
-    flex-wrap: wrap;
-    justify-content: center;
-    padding: 28px;
-    align-items: flex-start;
-}
+/* container for all cards */ 
+.tesa-grid { /* ตัวคอนเทนเนอร์หลักที่วางการ์ดทั้งหมด */ 
+    display: flex; /* ใช้ flexbox เพื่อจัดวางการ์ด */ 
+    gap: 20px; /* ระยะห่างระหว่างการ์ด */ 
+    flex-wrap: wrap; /* ให้การ์ดขึ้นบรรทัดใหม่เมื่อไม่มีพื้นที่ */ 
+    justify-content: center; /* จัดกึ่งกลางในแนวนอน */ 
+    padding: 28px; /* เว้นช่องว่างรอบๆ คอนเทนเนอร์ */ 
+    align-items: flex-start; /* จัดแนวแนวตั้งให้ชิดด้านบน */ 
+} /* ปิด .tesa-grid */ 
 
-/* card */
-.tesa-card {
-    background: linear-gradient(180deg, var(--card-start), var(--card-end));
-    border-radius: 12px;
-    box-shadow: 0 6px 18px var(--shadow);
-    border: 1px solid var(--border);
-    padding: 14px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 14px;
-    width: 340px;
-    transition: transform 0.18s ease, box-shadow 0.18s ease;
-    overflow: hidden;
-}
+/* card */ 
+.tesa-card { /* ตัวสไตล์สำหรับการ์ดแต่ละใบ */ 
+    background: linear-gradient(180deg, var(--card-start), var(--card-end)); /* พื้นหลังเป็น gradient สองสี */ 
+    border-radius: 12px; /* มุมโค้งของการ์ด */ 
+    box-shadow: 0 6px 18px var(--shadow); /* เงาเบาๆ เพื่อให้ดูยกขึ้นจากพื้น */ 
+    border: 1px solid var(--border); /* เส้นขอบโปร่งแสงรอบการ์ด */ 
+    padding: 14px; /* ช่องว่างภายในการ์ด */ 
+    display: flex; /* ใช้ flexbox ภายในการ์ดเพื่อจัด layout ภาพและข้อความ */ 
+    flex-direction: row; /* เรียงแบบแถว (ภาพซ้าย ข้อความขวา) */ 
+    align-items: center; /* จัดแนวกลางในแนวตั้ง */ 
+    gap: 14px; /* ช่องว่างระหว่างรูปและเนื้อหา */ 
+    width: 340px; /* ความกว้างคงที่ของการ์ด */ 
+    transition: transform 0.18s ease, box-shadow 0.18s ease; /* เพิ่ม transition ให้การยกและเงาดูเนียน */ 
+    overflow: hidden; /* ซ่อนเนื้อหาที่ล้นขอบการ์ด */ 
+} /* ปิด .tesa-card */ 
 
-/* hover */
-.tesa-card:hover{
-    transform: translateY(-6px);
-    box-shadow: 0 12px 30px rgba(45,30,20,0.09);
-}
+/* hover */ 
+.tesa-card:hover{ /* สไตล์เมื่อเมาส์ชี้บนการ์ด */ 
+    transform: translateY(-6px); /* ยกการ์ดขึ้นเล็กน้อยเมื่อโฮเวอร์ */ 
+    box-shadow: 0 12px 30px rgba(45,30,20,0.09); /* ขยายเงาขณะโฮเวอร์ */ 
+} /* ปิด :hover */ 
 
-/* image */
-.tesa-card img {
-    width: 96px;
-    height: 96px;
-    border-radius: 8px;
-    object-fit: cover;
-    flex-shrink: 0;
-}
+/* image */ 
+.tesa-card img { /* กำหนดสไตล์สำหรับภาพในการ์ด */ 
+    width: 96px; /* ความกว้างภาพ */ 
+    height: 96px; /* ความสูงภาพ */ 
+    border-radius: 8px; /* มุมโค้งของภาพ */ 
+    object-fit: cover; /* ตัดภาพให้เต็มกรอบโดยรักษาสัดส่วน */ 
+    flex-shrink: 0; /* ป้องกันไม่ให้ภาพย่อเมื่อขนาดการ์ดเล็กลง */ 
+} /* ปิด .tesa-card img */ 
 
-/* content block */
-.tesa-card .card-body{
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-    min-width: 0;
-}
+/* content block */ 
+.tesa-card .card-body{ /* บล็อกสำหรับชื่อและคำอธิบาย */ 
+    display: flex; /* ใช้ flex ในบล็อกเนื้อหา */ 
+    flex-direction: column; /* เรียงชื่อและคำอธิบายเป็นแนวตั้ง */ 
+    gap: 6px; /* ช่องว่างระหว่างชื่อกับคำอธิบาย */ 
+    min-width: 0; /* ช่วยให้ text-overflow ทำงานภายใน flex item */ 
+} /* ปิด .card-body */ 
 
-/* title, description, price */
-.card-title {
-    font-size: 1.05rem;
-    font-weight: 600;
-    color: var(--accent);
-    margin: 0;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
+/* title, description, price */ 
+.card-title { /* สไตล์สำหรับหัวข้อ/ชื่อเมนู */ 
+    font-size: 1.05rem; /* ขนาดฟอนต์ของชื่อ */ 
+    font-weight: 600; /* น้ำหนักตัวอักษร (semi-bold) */ 
+    color: var(--accent); /* ใช้สีเน้นจากตัวแปร */ 
+    margin: 0; /* ลบ margin เริ่มต้นของ h3 */ 
+    white-space: nowrap; /* ห้ามขึ้นบรรทัดใหม่ */ 
+    overflow: hidden; /* ซ่อนข้อความที่ล้น */ 
+    text-overflow: ellipsis; /* แสดง ... เมื่อข้อความยาว */ 
+} /* ปิด .card-title */ 
 
-.card-description {
-    font-size: 0.9rem;
-    color: var(--muted);
-    margin: 0;
-    line-height: 1.25;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-}
+.card-description { /* สไตล์สำหรับคำอธิบายสั้น */ 
+    font-size: 0.9rem; /* ขนาดฟอนต์ของคำอธิบาย */ 
+    color: var(--muted); /* ใช้สี muted สำหรับคำอธิบาย */ 
+    margin: 0; /* ลบ margin เริ่มต้นของ p */ 
+    line-height: 1.25; /* กำหนดระยะบรรทัด */ 
+    overflow: hidden; /* ซ่อนเนื้อหาที่ล้น */ 
+    text-overflow: ellipsis; /* แสดง ... เมื่อยาว */ 
+    display: -webkit-box; /* ใช้เทคนิค webkit line-clamp เพื่อจำกัดบรรทัด */ 
+    -webkit-line-clamp: 2; /* จำกัดคำอธิบายให้แสดงสูงสุด 2 บรรทัด */ 
+    -webkit-box-orient: vertical; /* ตั้งทิศทางกล่อง webkit เป็นแนวตั้ง */ 
+} /* ปิด .card-description */ 
 
-/* price badge aligned right */
-.card-price {
-    margin-left: auto;
-    font-size: 0.95rem;
-    font-weight: 700;
-    color: var(--accent);
-    background: rgba(122,91,69,0.06);
-    padding: 8px 12px;
-    border-radius: 10px;
-}
+/* price badge aligned right */ 
+.card-price { /* สไตล์สำหรับป้ายแสดงราคา */ 
+    margin-left: auto; /* ดันป้ายราคาไปด้านขวาสุดของ flex container */ 
+    font-size: 0.95rem; /* ขนาดฟอนต์ของราคา */ 
+    font-weight: 700; /* หนาเพื่อเน้นราคา */ 
+    color: var(--accent); /* ใช้สีเน้นเหมือนหัวข้อ */ 
+    background: rgba(122,91,69,0.06); /* พื้นหลังจางๆ ของป้ายราคา */ 
+    padding: 8px 12px; /* ช่องวางภายในป้าย */ 
+    border-radius: 10px; /* มุมโค้งของป้ายราคา */ 
+} /* ปิด .card-price */ 
 
-/* title area center */
-h1.text-center{
-    text-align:center;
-    color: var(--text);
-    margin-top:18px;
-    font-weight:700;
-}
+/* title area center */ 
+h1.text-center{ /* สไตล์สำหรับหัวเรื่องหน้าที่มีคลาส text-center */ 
+    text-align:center; /* จัดกึ่งกลางข้อความ */ 
+    color: var(--text); /* สีตัวอักษรสำหรับหัวเรื่อง */ 
+    margin-top:18px; /* เว้นระยะด้านบนเล็กน้อย */ 
+    font-weight:700; /* ทำให้หัวเรื่องหนา */ 
+} /* ปิด h1.text-center */ 
 
-/* small screens: card stacked */
-@media (max-width: 600px) {
-    .tesa-grid {
-        padding: 12px;
-    }
-    .tesa-card {
-        flex-direction: column;
-        align-items: flex-start;
-        width: 100%;
-    }
-    .card-price {
-        margin-left: 0;
-        align-self: flex-end;
-    }
-}
+/* small screens: card stacked */ 
+@media (max-width: 600px) { /* กฎ responsive เมื่อหน้าจอเล็กกว่าหรือเท่ากับ 600px */ 
+    .tesa-grid { /* ปรับ padding ของคอนเทนเนอร์บนหน้าจอเล็ก */ 
+        padding: 12px; /* ลด padding ให้พอดีกับหน้าจอมือถือ */ 
+    } /* ปิด .tesa-grid ใน media */ 
+    .tesa-card { /* ปรับการ์ดให้เรียงซ้อนในแนวตั้งบนมือถือ */ 
+        flex-direction: column; /* ให้ภาพขึ้นบนและเนื้อหาลงล่าง */ 
+        align-items: flex-start; /* จัดเนื้อหาให้ชิดซ้าย */ 
+        width: 100%; /* การ์ดเต็มความกว้างของคอนเทนเนอร์ */ 
+    } /* ปิด .tesa-card ใน media */ 
+    .card-price { /* ปรับป้ายราคาใน layout แบบคอลัมน์ */ 
+        margin-left: 0; /* เอา margin-left ออกเพราะไม่ใช่ layout แนวนอน */ 
+        align-self: flex-end; /* วางป้ายราคาไปด้านขวาของการ์ด */ 
+    } /* ปิด .card-price ใน media */ 
+} /* ปิด @media */ 
 
-/* Header / Footer styles (minimal pastel brown) */
-.site-header,
-.site-footer {
-  background: linear-gradient(180deg, rgba(255,250,246,0.9), rgba(255,247,242,0.95));
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
-  color: var(--text);
-}
+/* Header / Footer styles (minimal pastel brown) */ 
+.site-header, /* เลือกทั้ง header และ footer เพื่อใช้สไตล์พื้นหลังร่วมกัน */ 
+.site-footer { /* เริ่มบล็อกสไตล์สำหรับ header และ footer */ 
+  background: linear-gradient(180deg, rgba(255,250,246,0.9), rgba(255,247,242,0.95)); /* พื้นหลังแบบ gradient เบาจาง */ 
+  border-top: 1px solid var(--border); /* เส้นบนเรียบๆ */ 
+  border-bottom: 1px solid var(--border); /* เส้นล่างเรียบๆ */ 
+  color: var(--text); /* ใช้สีตัวอักษรหลัก */ 
+} /* ปิด .site-header, .site-footer */ 
 
-.header-inner,
-.footer-inner {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 14px 20px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-}
+.header-inner, /* กำหนดสไตล์ภายใน header */ 
+.footer-inner { /* และภายใน footer */ 
+  max-width: 1100px; /* จำกัดความกว้างสูงสุดของเนื้อหา */ 
+  margin: 0 auto; /* จัดกึ่งกลางคอนเทนเนอร์ */ 
+  padding: 14px 20px; /* เว้นช่องว่างภายใน */ 
+  display: flex; /* ใช้ flexbox สำหรับจัด layout */ 
+  align-items: center; /* จัดแนวแกนขวางให้ตรงกลาง */ 
+  justify-content: space-between; /* กระจายช่องว่างระหว่างซ้ายและขวา */ 
+  gap: 12px; /* ช่องว่างระหว่างลูกองค์ประกอบ */ 
+} /* ปิด .header-inner, .footer-inner */ 
 
-/* Brand */
-.brand {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
+/* Brand */ 
+.brand { /* กล่องสำหรับโลโก้/ชื่อแบรนด์ */ 
+  display: flex; /* จัดวางไอคอนและข้อความเรียงกัน */ 
+  align-items: center; /* จัดให้อยู่กึ่งกลางตามแนวตั้ง */ 
+  gap: 10px; /* ระยะห่างระหว่างไอคอนกับข้อความ */ 
+} /* ปิด .brand */ 
 
-.brand-mark {
-  width: 44px;
-  height: 44px;
-  display: inline-grid;
-  place-items: center;
-  border-radius: 10px;
-  background: rgba(122,91,69,0.08);
-  color: var(--accent);
-  font-size: 1.25rem;
-}
+.brand-mark { /* สไตล์สำหรับเครื่องหมาย/ไอคอนแบรนด์ */ 
+  width: 44px; /* ความกว้างของไอคอน */ 
+  height: 44px; /* ความสูงของไอคอน */ 
+  display: inline-grid; /* ใช้ grid เล็กๆ เพื่อจัดไอคอนภายใน */ 
+  place-items: center; /* จัดตำแหน่งไอคอนให้อยู่ตรงกลาง */ 
+  border-radius: 10px; /* มุมโค้งของไอคอน */ 
+  background: rgba(122,91,69,0.08); /* พื้นหลังอ่อนของไอคอน */ 
+  color: var(--accent); /* สีของไอคอนใช้สีเน้น */ 
+  font-size: 1.25rem; /* ขนาดฟอนต์ของไอคอน (เช่น อีโมจิ) */ 
+} /* ปิด .brand-mark */ 
 
-.brand-text .brand-name {
-  font-weight: 700;
-  color: var(--accent);
-  line-height: 1;
-}
+.brand-text .brand-name { /* สไตล์สำหรับชื่อแบรนด์ภายใน .brand-text */ 
+  font-weight: 700; /* ทำให้ชื่อแบรนด์หนา */ 
+  color: var(--accent); /* ใช้สีเน้น */ 
+  line-height: 1; /* ตั้งความสูงบรรทัดให้กระชับ */ 
+} /* ปิด .brand-name */ 
 
-.tagline {
-  font-size: 0.85rem;
-  color: var(--muted);
-  margin-top: 2px;
-}
+.tagline { /* สไตล์สำหรับแท็กไลน์/คำโปรย */ 
+  font-size: 0.85rem; /* ขนาดฟอนต์เล็กลงสำหรับแท็กไลน์ */ 
+  color: var(--muted); /* ใช้สี muted ให้ไม่ดึงความสนใจมาก */ 
+  margin-top: 2px; /* เว้นระยะเล็กๆ ใต้ชื่อแบรนด์ */ 
+} /* ปิด .tagline */ 
 
-/* Nav */
-.header-nav {
-  display: flex;
-  gap: 12px;
-  align-items: center;
-}
+/* Nav */ 
+.header-nav { /* สไตล์รายการนำทางใน header */ 
+  display: flex; /* จัดวางลิงก์เรียงเป็นแถว */ 
+  gap: 12px; /* ระยะห่างระหว่างลิงก์ */ 
+  align-items: center; /* จัดให้อยู่กึ่งกลางแนวตั้ง */ 
+} /* ปิด .header-nav */ 
 
-.nav-link {
-  text-decoration: none;
-  color: var(--muted);
-  padding: 8px 10px;
-  border-radius: 8px;
-  font-weight: 600;
-  transition: .15s ease, color .15s ease;
-}
+.nav-link { /* สไตล์ของลิงก์นำทาง */ 
+  text-decoration: none; /* เอาเส้นใต้ของลิงก์ออก */ 
+  color: var(--muted); /* ใช้สี muted เป็นค่าพื้นฐาน */ 
+  padding: 8px 10px; /* พื้นที่คลิกรอบๆ ลิงก์ */ 
+  border-radius: 8px; /* มุมโค้งเล็กน้อยให้ลิงก์ */ 
+  font-weight: 600; /* น้ำหนักตัวอักษรของลิงก์ */ 
+  transition: .15s ease, color .15s ease; /* transition สำหรับเอฟเฟ็กต์ hover */ 
+} /* ปิด .nav-link */ 
 
-.nav-link:hover {
-  background: rgba(122,91,69,0.06);
-  color: var(--accent);
-}
+.nav-link:hover { /* สไตล์เมื่อโฮเวอร์ที่ลิงก์ */ 
+  background: rgba(122,91,69,0.06); /* พื้นหลังจางๆ เพื่อบอกสถานะ */ 
+  color: var(--accent); /* เปลี่ยนสีข้อความเป็นสีเน้นเมื่อโฮเวอร์ */ 
+} /* ปิด .nav-link:hover */ 
 
-/* Footer specific */
-.site-footer {
-  margin-top: 28px;
-  border-top: 1px solid rgba(122,91,69,0.06);
-}
+/* Footer specific */ 
+.site-footer { /* ปรับเฉพาะ footer เพิ่มเติม */ 
+  margin-top: 28px; /* เว้นระยะด้านบนของ footer จากเนื้อหาหลัก */ 
+  border-top: 1px solid rgba(122,91,69,0.06); /* เส้นแบ่งด้านบนแบบจาง */ 
+} /* ปิด .site-footer */ 
 
-.footer-left {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
+.footer-left { /* คอลัมน์ซ้ายของ footer */ 
+  display: flex; /* ใช้ flex เพื่อจัดเนื้อหาเป็นคอลัมน์ */ 
+  flex-direction: column; /* จัดเป็นแนวตั้ง */ 
+  gap: 6px; /* ระยะห่างระหว่างบรรทัด */ 
+} /* ปิด .footer-left */ 
 
-.brand-small {
-  display: flex;
-  gap: 8px;
-  align-items: center;
-}
+.brand-small { /* แบรนด์เวอร์ชันย่อใน footer */ 
+  display: flex; /* จัดไอคอนและชื่อเป็นแถว */ 
+  gap: 8px; /* ระยะห่างระหว่างไอคอนและชื่อ */ 
+  align-items: center; /* จัดให้อยู่กึ่งกลางแนวตั้ง */ 
+} /* ปิด .brand-small */ 
 
-.brand-name-small {
-  font-weight: 700;
-  color: var(--accent);
-}
+.brand-name-small { /* ชื่อแบรนด์ขนาดเล็กใน footer */ 
+  font-weight: 700; /* ทำให้ตัวหนาเพื่อความชัดเจน */ 
+  color: var(--accent); /* ใช้สีเน้น */ 
+} /* ปิด .brand-name-small */ 
 
-.footer-right {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 6px;
-}
+.footer-right { /* คอลัมน์ขวาของ footer */ 
+  display: flex; /* ใช้ flex เพื่อจัดเนื้อหา */ 
+  flex-direction: column; /* เรียงเป็นแนวตั้ง (ปีและลิงก์) */ 
+  align-items: flex-end; /* จัดให้ชิดขวา */ 
+  gap: 6px; /* ระยะห่างระหว่างบรรทัด */ 
+} /* ปิด .footer-right */ 
 
-.footer-links {
-  display: flex;
-  gap: 10px;
-}
+.footer-links { /* กลุ่มลิงก์ภายใน footer */ 
+  display: flex; /* จัดลิงก์เรียงเป็นแถว */ 
+  gap: 10px; /* ระยะห่างระหว่างลิงก์ */ 
+} /* ปิด .footer-links */ 
 
-/* muted helper */
-.muted {
-  color: var(--muted);
-  font-size: 0.85rem;
-}
-
-/* Responsive */
-@media (max-width: 720px) {
-  .header-inner,
-  .footer-inner {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  .header-nav {
-    width: 100%;
-    justify-content: flex-start;
-    gap: 8px;
-    margin-top: 8px;
-  }
-  .footer-right {
-    align-self: stretch;
-    flex-direction: row;
-    justify-content: space-between;
-    width: 100%;
-  }
-}
+/* muted helper */ 
+.muted { /* คลาสช่วยสำหรับข้อความที่ต้องการให้ซีดลง */ 
+  color: var(--muted); /* ใช้สี muted จากตัวแปร */ 
+  font-size: 0.85rem; /* ขนาดฟอนต์เล็กลงสำหรับข้อความรอง */ 
+} /* ปิด .muted */ 
